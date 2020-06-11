@@ -1,0 +1,21 @@
+{% block content %}
+<div>
+    {% if form.errors %}
+    <p>아이디나 비밀번호가 맞지 않습니다. 다시 입력하세요</p>
+    {% endif %}
+
+    <h1>Login</h1>
+    <form method="POST" action="{% url 'login' %}">
+        
+        {% csrf_token %}
+        <h3>username:</h3>
+        <input type="text" name="username" value="">
+        <br>
+        <h3>password:</h3>
+        <input type="password" name="password" value="">
+
+        <button type="submit">Login</button>
+    </form>
+    <a href="{% url 'home' %}">home</a>
+</div>
+{% endblock %}

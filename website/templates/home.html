@@ -1,0 +1,17 @@
+{% block content %}
+
+    {% if user.is_authenticated %}
+    <p>{{ user.username }} 개미님 ^^</p>
+
+    <p>로그아웃 하실?</p>
+    <a href="{% url 'logout' %}">로그아웃</a>
+
+    {% else %}
+
+    <p>회원 하실?</p>
+    <a href="{% url 'signup' %}">signup</a>
+    <p>로그인 하실?</p>
+    <a href="{% url 'login' %}">login</a>
+    
+    {% endif %}
+{% endblock %}
