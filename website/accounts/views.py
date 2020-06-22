@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import views
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import auth
-from .forms import CreateUserForm
+# from .forms import CreateUserForm
 
 
 def signup(request):
@@ -26,12 +26,11 @@ def login(request):
             auth.login(request, user)
             return redirect('home')
         else:
-            return render(request, 'login.html')
+            return render(request, 'registration/login.html')
     else:
         return render(request,'registration/login.html')
 
 def logout(request):
-    if request.method=="POST":
-        auth.logout(request)
-        return redirct('home')
-    return render(request,'registration/login.html')
+    auth.logout(request)
+    return redirect('home')
+    

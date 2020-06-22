@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>주가예측 기반 금융 거래 자동화</title>
+  <style>
+      .idpw{
+          padding:10px;
+          margin-right: auto;
+          margin-left: auto;
+      }
+      .idpw td{
+          padding:8px;
+      }
+      
+      .btnset2{
+          width: 100%;
+          text-align: center;
+      }
+      .btn2{
+          width: 100px;
+          height: 30px;
+          margin-top: 10px;
+          margin-bottom: 20px;
+
+          
+      }
+      .loginbtn{
+          width: 70px;
+          height: 50px;
+      }
+  </style>
+</head>
+
+<body>
+
+	<form class="container container-fluid" style="width:500px;margin-top:100px;margin-left: auto;margin-right: auto;">
+
+		<h2 class="text-center">자동화 금융 투자</h2>
+		<fieldset>
+
+			<legend>로그인</legend>
+
+			<div class="form-group col">
+                <table class="idpw">
+                    <tr>
+                        <td>
+                            <label>아이디</label> 
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="아이디를 입력해주세요" name="id">
+                        </td>
+                        <td rowspan="2">
+                            <button type="submit" class="loginbtn"class="btn btn-primary" id="join">로그인</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <label>패스워드</label> 
+                        </td>
+                        <td>
+                        <input type="password" class="form-control" placeholder="패스워드를 입력해주세요" name="pw">
+                    </td>
+                    </tr>
+                </table>
+				
+			</div>
+			<div class="btnset2">
+                <button type="button" class="btn2"onclick="location.href='join.html'">회원가입</button>
+                <button type="button" class="btn2"onclick="location.href=''">아이디찾기</button>
+                <button type="button" class="btn2"onclick="location.href='main.html'">홈으로</button>
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ergate',
+    'simulation',
+    'selecting',
     'accounts.apps.AccountsConfig',
 ]
 
