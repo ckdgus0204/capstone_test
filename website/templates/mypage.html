@@ -23,7 +23,7 @@
     }
 
     .mypage_table {
-
+        margin-top: 50px;
         margin-right: auto;
         margin-left: auto;
         text-align: center;
@@ -34,8 +34,8 @@
     }
 
     .have_list {
-        border: solid 1px;
         border-collapse: collapse;
+        border:solid 1px;
         margin: 10px;
     }
     .have_list tr{
@@ -44,6 +44,12 @@
     .have_list td{
         border: solid 1px;
     }
+    h1{
+        margin-bottom:30px;
+    }
+
+    
+
 </style>
 
 <!--차트그리기 script-->
@@ -62,8 +68,7 @@
                 {y: 79.45, label: "삼성"},
                 {y: 7.31, label: "LG전자"},
                 {y: 7.06, label: "SK증권"},
-                {y: 4.91, label: "XXX"},
-                {y: 1.26, label: "Others"}
+                {y: 3.06, label: "카카오"}
             ]
         }]
     });
@@ -80,7 +85,7 @@
         <tr>
             {% if user.is_authenticated %}
             <td>
-                <a href="#" style="color:black;">{{ user.username }} 개미님 ^^</a>
+                <a href="#" style="color:black;">{{ user.username }} </a>
             <td>|</td>
             <td><a href="{% url 'logout' %}">로그아웃</a></td>
             <td>|</td>
@@ -98,60 +103,85 @@
         </tr>
     </table><!--최상단 회원명|HOME|마이페이지 끝-->
     {% endblock %}
-    
-    <table class="mypage_table"><!--세가지 탭 및 내역 테이블-->
-        <tr>
-            <th style="text-align: left;"colspan="3"><h1>My Page</h1></th>
-        </tr>
-        <tr>
-            <td>보유종목</td>
-            <td style="width: 500px;">보유종목 차트</td>
-            <td>잔고내역</td>
-        </tr>
-        <tr>
-            <td style="height:400px; border: solid 1px;" >
-                <table class="have_list"><!--보유종목table-->
-                    <tr>
-                        <td>종 목</td>
-                        <td>보유량</td>
-                    </tr>
-                    <tr>
-                        <td>삼성전자</td>
-                        <td>5%</td>
-                    </tr>
-                    <tr>
-                        <td>SK증권</td>
-                        <td>10%</td>
-                    </tr>
-                    <tr>
-                        <td>LG전자</td>
-                        <td>10%</td>
-                    </tr>
-                </table>
-            </td>
-            <td style="height:400px; border: solid 1px;" >
-                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-            </td>
-            <td style="height:400px; border: solid 1px;" >
-                    <table class="have_list"><!--잔고내역table-->
-                        <tr>
-                            <td>총 매입</td>
-                            <td>100,000</td>
-                            <td>총평가</td>
-                            <td>10,000,000</td>
-                        </tr>
-                        <tr>
-                            <td>손익</td>
-                            <td>100,000</td>
-                            <td>수익률</td>
-                            <td>1%</td>
-                        </tr>
-                    </table>
+    <div class="container">
+        <table class="table"><!--세가지 탭 및 내역 테이블-->
+            <tr>
+                <th style="text-align: left; "colspan="3"><h1>My Page</h1></th>
+            </tr>
+            <tr >
+                <br>
+                <td style="font-size: 30px;text-align: center">보유종목</td>
+                <td style="width: 500px;font-size: 30px;text-align: center">보유종목 차트</td>
+                <td style="font-size: 30px;text-align: center">잔고내역</td>
+            </tr>
+            <tr>
+                <td style="height:400px;" >
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">종목</th>
+                            <th scope="col">보유량</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>삼성</td>
+                            <td>79.45%</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>LG</td>
+                            <td>7.31%</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>SK증권</td>
+                            <td>7.06%</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">4</th>
+                            <td>카카오</td>
+                            <td>3.06%</td>
+                          </tr>
+                        </tbody>
+                      </table>
                 </td>
-            
-        </tr>
-    </table><!--세가지 탭 및 내역 테이블 끝-->
+                <td style="height:400px; " >
+                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                </td>
+                <td style="height:400px; " >
+                        
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <td>총매입</td>
+                            <td >824,000</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>총평가</td>
+                            <td>834,768</td>
+                          </tr>
+                          <tr>
+                            <td>손익</td>
+                            <td>10,768</td>
+                          </tr>
+                          <tr>
+                            <td>수익률</td>
+                            <td>1.306%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                
+            </tr>
+        </table><!--세가지 탭 및 내역 테이블 끝-->
+    </div>
+    
 
 </body>
 </html>

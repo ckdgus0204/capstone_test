@@ -60,7 +60,7 @@
         <tr>
             {% if user.is_authenticated %}
             <td>
-                <a href="#" style="color:black;">{{ user.username }} 개미님 ^^</a>
+                <a href="#" style="color:black;">{{ user.username }}  </a>
             <td>|</td>
             <td><a href="{% url 'logout' %}">로그아웃</a></td>
             <td>|</td>
@@ -79,7 +79,7 @@
     </table><!--최상단 회원명|HOME|마이페이지 끝-->
     {% endblock %}
   </div>
-  <div class="container">
+  <div class="container"style="margin-top:20px;">
     <div class="row">
       <div class="col">
         <h1>시뮬레이션 종목 선정</h1>
@@ -132,7 +132,7 @@
            </div>
          </div>
     <div class="row">
-      <div class="col" style="padding-top: ;padding-bottom: 20px;">
+      <div class="col" style="padding-bottom: 20px;">
         <form class="stock_form">
           <div class="form-row">
             <div class="col-4">

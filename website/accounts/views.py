@@ -9,6 +9,8 @@ from django.contrib import auth
 def signup(request):
     if request.method == "POST":
         userform = UserCreationForm(request.POST)
+        print(userform.is_valid())
+        print(userform)
         if userform.is_valid():
             userform.save()
             return redirect("home")

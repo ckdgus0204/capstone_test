@@ -29,6 +29,9 @@
         .topmenu {
             margin-left: auto; margin-right: 0px;
         }
+        .sele_table{
+          margin-top: 30px;;
+        }
     </style>
 </head>
 
@@ -39,7 +42,7 @@
           <tr>
               {% if user.is_authenticated %}
               <td>
-                  <a href="#" style="color:black;">{{ user.username }} 개미님 ^^</a>
+                  <a href="#" style="color:black;">{{ user.username }}  </a>
               <td>|</td>
               <td><a href="{% url 'logout' %}">로그아웃</a></td>
               <td>|</td>
@@ -68,7 +71,7 @@
                 </td>
                 <td>
                     <div style="border:solid 1px;">
-                        {{day.year}}년 {{day.month}}월 {{day.day}}일 주가예측 기반 모의 거래
+                        2020년 6월 23일 주가예측 기반 모의 거래
                     </div>
                 </td>
             </tr>
@@ -88,19 +91,19 @@
                               <tr>
                                 <th scope="row">1</th>
                                 <td>삼성전자</td>
-                                <td>90,000</td>
+                                <td>901,372</td>
                                 <td>10주</td>
                               </tr>
                               <tr>
                                 <th scope="row">2</th>
                                 <td>네이버</td>
-                                <td>50,000</td>
+                                <td>50,246</td>
                                 <td>1주</td>
                               </tr>
                               <tr>
                                 <th scope="row">3</th>
                                 <td>kakao</td>
-                                <td>60,000</td>
+                                <td>620,856</td>
                                 <td>100주</td>
                               </tr>
                             </tbody>
@@ -125,24 +128,24 @@
                             <tbody>
                               <tr>
                                 <th scope="row">1</th>
-                                <td>91,000</td>
-                                <td>+1,000</td>
-                                <td>93,000</td>
-                                <td>90,000</td>
+                                <td>900,264</td>
+                                <td>+1,308</td>
+                                <td>933,432</td>
+                                <td>890,592</td>
                               </tr>
                               <tr>
                                 <th scope="row">2</th>
-                                <td>51,000</td>
-                                <td>+1,000</td>
-                                <td>60,000</td>
-                                <td>50,000</td>
+                                <td>49,362</td>
+                                <td>-884</td>
+                                <td>53,423</td>
+                                <td>47,568</td>
                               </tr>
                               <tr>
                                 <th scope="row">3</th>
-                                <td>62,000</td>
-                                <td>+2,000</td>
-                                <td>70,000</td>
-                                <td>60,000</td>
+                                <td>610,357</td>
+                                <td>-10,499</td>
+                                <td>610,532</td>
+                                <td>570,351</td>
                               </tr>
                             </tbody>
                           </table>

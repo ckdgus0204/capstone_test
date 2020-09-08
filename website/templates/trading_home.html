@@ -15,7 +15,7 @@
   <style>
       header{
         text-align:center;
-        font-size:xx-large;
+        font-size:40px;
       }
       a {
             text-decoration: none;
@@ -36,7 +36,6 @@
             height:50px;
         }
         .container{
-            border:solid 1px;
         
         }
         .stock_form{
@@ -53,7 +52,7 @@
         <tr>
             {% if user.is_authenticated %}
             <td>
-                <a href="#" style="color:black;">{{ user.username }} 개미님 ^^</a>
+                <a href="#" style="color:black;">{{ user.username }}  </a>
             <td>|</td>
             <td><a href="{% url 'logout' %}">로그아웃</a></td>
             <td>|</td>
@@ -71,16 +70,16 @@
         </tr>
     </table><!--최상단 회원명|HOME|마이페이지 끝-->
     {% endblock %}
-    <header>자동거래</header>
+    <header style="margin-bottom: 30px;margin-top: 30px;font-weight:  bold;">자동거래</header>
 
     <div class="container">
         <div class="row">
             <div class="col">
-                <p style="font-size: 20px; margin-left: 20px; margin-top: 10px;"> 체결목록</p>
+                <p style="font-size: 30px; margin-left: 20px; margin-top: 10px;"> 체결목록</p>
             </div>
         </div>
         <div class="row">
-            <div class="col" style="border:solid 1px;">
+            <div class="col">
                 <table class="table">
                     <thead>
                       <tr>
@@ -98,59 +97,64 @@
                       <tr>
                         <th scope="row">1</th>
                         <td>삼성전자</td>
-                        <td>2</td>
-                        <td>90,000</td>
+                        <td>10</td>
+                        <td>910,372</td>
                         <td>매입</td>
-                        <td>+10,000</td>
+                        <td>+4,948</td>
                         <td>거래중</td>
-                        <td><button type="button" class="btn btn-light">손절</button></td>
+                        <td><button type="button" class="btn btn-light">중지</button></td>
                       </tr>
                       <tr>
                         <th scope="row">2</th>
-                        <td>삼성전자</td>
-                        <td>2</td>
-                        <td>90,000</td>
+                        <td>카카오</td>
+                        <td>20</td>
+                        <td>473,438</td>
                         <td>매입</td>
-                        <td>+10,000</td>
+                        <td>+34,030</td>
                         <td>거래중</td>
-                        <td><button type="button" class="btn btn-light">등록</button></td>
+                        <td><button type="button" class="btn btn-light">중지</button></td>
                       </tr>
                       <tr>
-                        <th scope="row">1</th>
-                        <td>삼성전자</td>
-                        <td>2</td>
-                        <td>90,000</td>
+                        <th scope="row">3</th>
+                        <td>SK하이닉스</td>
+                        <td>20</td>
+                        <td>1,304,572</td>
                         <td>매입</td>
-                        <td>+10,000</td>
+                        <td>+29,603</td>
                         <td>거래중</td>
-                        <td><button type="button" class="btn btn-light">등록</button></td>
+                        <td><button type="button" class="btn btn-light">중지</button></td>
+                       </tr>
+                       <tr>
+                         <td colspan="8">
+                          <div class="row">
+                            <div class="col">
+                                <form class="stock_form">
+                                    <div class="form-row">
+                                      <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="종목 이름">
+                                      </div>
+                                      <div class="col-2">
+                                        <input type="number" class="form-control" placeholder="매입 가격">
+                                      </div>
+                                      <div class="col-2">
+                                        <input type="number" class="form-control" placeholder="거래량">
+                                      </div>
+                                      <div class="col-1">
+                                        <button type="button" class="btn btn-light">등록</button>
+                                      </div>
+                                      
+                                    </div>
+                                  </form>
+                            </div>
+                        </div>       
+                         </td>
                        </tr>
                     </tbody>
                 </table>
             </div>
 
         </div>
-        <div class="row">
-            <div class="col">
-                <form class="stock_form">
-                    <div class="form-row">
-                      <div class="col-4">
-                        <input type="text" class="form-control" placeholder="종목 이름">
-                      </div>
-                      <div class="col-2">
-                        <input type="number" class="form-control" placeholder="매입 가격">
-                      </div>
-                      <div class="col-2">
-                        <input type="number" class="form-control" placeholder="거래량">
-                      </div>
-                      <div class="col-1">
-                        <button type="button" class="btn btn-light">등록</button>
-                      </div>
-                      
-                    </div>
-                  </form>
-            </div>
-        </div>       
+        
     </div>
 
 </body>
