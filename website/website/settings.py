@@ -76,13 +76,23 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+DATABASES = { 
+    'default': { 
+        'ENGINE': 'django.db.backends.mysql', # mysql 엔진 설정 
+        'NAME':'ant', # 데이터베이스 이름 
+        'USER':'root', # 데이터베이스 연결시 사용할 유저 이름 
+        'PASSWORD':'password', # 유저 패스워드 
+        'HOST':'localhost', 
+        'PORT':'3306' 
+    } 
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
@@ -127,4 +137,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 LOGIN_REDIRECT_URL='home'
 LOGOUT_REDIRECT_URL='home'
 
-AUTH_USER_MODEL='auth.User'
+AUTH_USER_MODEL='accounts.User'
+AUTHENTICATION_BACKENDS = (
+    ('django.contrib.auth.backends.ModelBackend'),
+)

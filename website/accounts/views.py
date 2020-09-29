@@ -1,35 +1,57 @@
-from django.shortcuts import render,redirect
-from django.contrib.auth.models import User
-from django.contrib.auth import views
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+from .models import User
+from .forms import UserLoginForm, UserSignupForm
 from django.contrib import auth
+from django.contrib.auth import authenticate
+from django.contrib.auth.hashers import make_password
+
 # from .forms import CreateUserForm
 
-
+# Create your views here.
 def signup(request):
     if request.method == "POST":
-        userform = UserCreationForm(request.POST)
-        print(userform.is_valid())
-        print(userform)
-        if userform.is_valid():
-            userform.save()
-            return redirect("home")
-    elif request.method=="GET":
-        userform = UserCreationForm()
+        if request.POST["password"] == request.POST["password2"]:
+            form = UserSignupForm(request.POST)
+            
+            print(form["password"])
 
-    return render(request,'registration/signup.html',{"userform":userform})
-
+            if form.is_valid():
+                user = User()
+                user = form.save(commit=False)
+                user.password=make_password(user.password)
+                user.save()
+                auth.login(request,user)
+                return redirect('home')
+            else:
+                form = UserSignupForm()
+                print('form not valid')
+                return render(request, 'registration/signup.html',{'form':form})
+        else:
+            form = UserSignupForm()
+            print('비밀번호와 비밀번호 확인이 다름')
+            return render(request, 'registration/signup.html',{'form':form})
+    else:
+        form = UserSignupForm()
+        print('request not post')
+        return render(request, 'registration/signup.html',{'form':form})
+        
 def login(request):
     if request.method=="POST":
-        username=request.POST['username']
+        form=UserLoginForm(request.POST)
+        username = request.POST.get('username')
         password=request.POST['password']
-        user=auth.authenticate(request, username=username, password=password)
+        user = auth.authenticate(username=username, password=password)
+        print(request.POST['password'])
+        print(user)
         if user is not None:
-            auth.login(request, user)
+            auth.login(request,user)
             return redirect('home')
         else:
+            print('user=none이래')
             return render(request, 'registration/login.html')
+
     else:
+        print('POST_not')
         return render(request,'registration/login.html')
 
 def logout(request):
